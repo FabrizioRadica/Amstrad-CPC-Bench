@@ -1,0 +1,32 @@
+1' BENCH v1.0 by Fabrizio Radica - 2018
+10 cls:t1=TIME
+20 for i=0 to 399
+30 x%=int(i/20)
+35 y%=i mod 20
+40 locate y%+2,x%+1:print "X"
+50 next
+60 ts1=(TIME-t1)/300:print ts1
+80 a$=inkey$:if a$=" " then goto 110 else goto 80
+
+110 cls:t1=TIME
+120 for i=0 to 399
+130 x%=int(i*0.05)
+135 y%=i mod 20
+140 locate y%+2,x%+1:print "X"
+150 next
+160 ts2=(TIME-t1)/300:print ts2
+180 a$=inkey$:if a$=" " then goto 190 else goto 180
+
+190 cls:t1=TIME
+200 for y%=0 to 19
+210 for x%=0 to 19
+220 locate y%+2,x%+1:print "X"
+230 next:next
+260 ts3=(TIME-t1)/300:print ts3
+280 a$=inkey$:if a$=" " then goto 290 else goto 280
+
+290 cls
+300 Print "Results:"
+310 print "Test 1 - int(i/20)",ts1
+320 print "Test 2 - int(i*0.05)",ts2
+330 print "Test 3 - double for",ts3
